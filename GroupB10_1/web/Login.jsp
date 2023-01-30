@@ -1,3 +1,10 @@
+<%-- 
+    Document   : Login
+    Created on : Jan 30, 2023, 5:43:32 PM
+    Author     : hp
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,4 +89,5 @@
     </center>
 
 </body>
+
 </html>

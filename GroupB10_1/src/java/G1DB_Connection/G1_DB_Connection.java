@@ -17,9 +17,9 @@ import java.util.logging.Logger;
  *
  * @author maryam
  */
-public class G1DB_Connection {
+public class G1_DB_Connection {
     
-    String G1URL = "jdbc:mysql://localhost:3306/maryamDB?useSSL=false";
+    String G1URL = "jdbc:mysql://localhost:3306/muganndb?useSSL=false";
     String G1UserName = "GroupB10_ 1";
     String G1Password = "GroupB10_ 1123";
     Connection G1Connection = null;
@@ -27,22 +27,22 @@ public class G1DB_Connection {
     ResultSet G1resultSet = null;
     String G1sqlQuery = "";
 
-    public G1DB_Connection() {
+    public G1_DB_Connection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(G1DB_Connection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(G1_DB_Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {
             G1Connection = DriverManager.getConnection(G1URL, G1UserName, G1Password);
         } catch (SQLException ex) {
-            Logger.getLogger(G1DB_Connection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(G1_DB_Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public ResultSet DisplayClients() {
-        G1sqlQuery = "SELECT * FROM CLIENTS;";
+        G1sqlQuery = "SELECT * FROM CLIENT;";
         try {
             G1preparedStmt = G1Connection.prepareStatement(G1sqlQuery);
             G1resultSet = G1preparedStmt.executeQuery();
@@ -52,7 +52,7 @@ public class G1DB_Connection {
     }
     
     public ResultSet DisplayCases() {
-        G1sqlQuery = "SELECT * FROM CASES;";
+        G1sqlQuery = "SELECT * FROM CASE;";
         try {
             G1preparedStmt = G1Connection.prepareStatement(G1sqlQuery);
             G1resultSet = G1preparedStmt.executeQuery();
@@ -61,9 +61,9 @@ public class G1DB_Connection {
         return G1resultSet;
     }
 
-    public boolean isLawyerExist(int Lawyer_ID, String Password) {
+    public boolean isLawyerExist(String Username, String Password) {
         boolean isLawyerExist = false;
-        G1sqlQuery = "SELECT * FROM bahwalTable WHERE id= " + Lawyer_ID + " AND password= '" + Password + "'";
+        G1sqlQuery = "SELECT * FROM LAWYER WHERE Username = '" + Username + "' AND Password = '" + Password + "'";
         try {
             G1preparedStmt = G1Connection.prepareStatement(G1sqlQuery);
             G1resultSet = G1preparedStmt.executeQuery();
@@ -90,8 +90,8 @@ public class G1DB_Connection {
         return i;
     }
     
-    public int AddCaase(int Case_ID, int Client_ID, String Title, String Category, String Status, String Fees) {
-        G1sqlQuery = "insert into bahwalTable(Case_ID, Client_ID, Title, Category,Status, Fees)values('" + Case_ID + "','" + Client_ID
+    public int AddCase(int Case_ID, int Client_ID, String Title, String Category, String Status, String Fees) {
+        G1sqlQuery = "insert into Case(Case_ID, Client_ID, Title, Category,Status, Fees)values('" + Case_ID + "','" + Client_ID
                 + "','" +Title + "','" + Category + "','" +Status+ "','" + Fees + "');";
         int i = 0;
         try {

@@ -64,19 +64,11 @@
             <img id="logo" src="Mugann.png" alt="">
             <h1>Mugann</h1>
             <br>
-            <h3>Login</h3>
-            <form name="loginForm" action="VerifyLawyer.jsp" method="POST">
-                 <div class="space">
-                <label for="Username">Username:</label>
-                <br>
-                <input type="text" name="Username" value="">
-            </div>
-            <div class="space">
-                <label for="Password">Password:</label>
-                <br>
-                <input type="password" name="Password" value="">
-            </div>
-            <input type="submit" value="Login" name="Login" />
+            <form name="clientsForm" action="DisplayClients.jsp" method="POST">
+            <input type="submit" value="Clients" name="Clients" />
+            </form> 
+             <form name="casesForm" action="DisplayCases.jsp" method="POST">
+            <input type="submit" value="Cases" name="Cases" />
             </form> 
         </center>
     </center>

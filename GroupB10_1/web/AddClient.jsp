@@ -1,3 +1,10 @@
+<%-- 
+    Document   : AddClient
+    Created on : Jan 30, 2023, 8:23:24 PM
+    Author     : hp
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,16 +45,21 @@
         margin-bottom: 20px;
     }
 
+    .label{
+        /* background-color: blue; */
+        width: 200px;
+        height: 200px;
+    }
     label{
-        float: left;
-        margin-left: 180px;
+        
+        /* float: left; */
+        /* margin-left: 180px; */
         /* text-align: left; */
     }
     button{
         height: 30px;
         width: 100px;
-        border-radius: 10px;
-        
+        border-radius: 8px;
         background-color: white;
         
     }
@@ -55,6 +67,10 @@
             margin-top: 50px;
             height: 150px;
             width: 150px;
+    }
+    div{
+        /* float: left; */
+        margin-bottom: 5px;
     }
 </style>
 
@@ -64,22 +80,34 @@
             <img id="logo" src="Mugann.png" alt="">
             <h1>Mugann</h1>
             <br>
-            <h3>Login</h3>
-            <form name="loginForm" action="VerifyLawyer.jsp" method="POST">
-                 <div class="space">
-                <label for="Username">Username:</label>
-                <br>
-                <input type="text" name="Username" value="">
+            <h3>Add Client</h3>
+            <div>
+                <label class="label" for="id">ID:</label>
+                <input type="number">
             </div>
-            <div class="space">
-                <label for="Password">Password:</label>
-                <br>
-                <input type="password" name="Password" value="">
+            <div>
+                <label class="label" for="name">Name:</label>
+                <input type="text">
             </div>
-            <input type="submit" value="Login" name="Login" />
+            <div>
+                <label class="label" for="email">Email:</label>
+                <input type="text">
+            </div>
+            <div>
+                <label class="label" for="phone_number">Number:</label>
+                <input type="number">
+            </div>
+            <br>
+            <div>
+            <button type="submit">Add</button>
+        </div>
+        <form name="backForm" action="DisplayClients.jsp" method="POST">
+            <input type="submit" value="back" name="back" />
             </form> 
+
         </center>
     </center>
 
 </body>
+
 </html>
