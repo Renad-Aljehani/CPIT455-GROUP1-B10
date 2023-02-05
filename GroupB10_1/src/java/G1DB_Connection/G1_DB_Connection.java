@@ -18,10 +18,10 @@ import java.util.logging.Logger;
  * @author maryam
  */
 public class G1_DB_Connection {
-    
+
     String G1URL = "jdbc:mysql://localhost:3306/muganndb?useSSL=false";
-    String G1UserName = "GroupB10_ 1";
-    String G1Password = "GroupB10_ 1123";
+    String G1UserName = "GroupB10_1";
+    String G1Password = "GroupB10_1123";
     Connection G1Connection = null;
     PreparedStatement G1preparedStmt = null;
     ResultSet G1resultSet = null;
@@ -50,7 +50,7 @@ public class G1_DB_Connection {
         }
         return G1resultSet;
     }
-    
+
     public ResultSet DisplayCases() {
         G1sqlQuery = "SELECT * FROM CASE;";
         try {
@@ -74,8 +74,8 @@ public class G1_DB_Connection {
         return isLawyerExist;
     }
 
-    public int AddClient(int Client_ID, int Phone_number, String Email, String Name) {
-        G1sqlQuery = "insert into CLIENT(Client_ID, Phone_number ,Email ,Name)values('" + Client_ID + "','" + Phone_number
+    public int AddClient(String Client_ID, String Phone_number, String Email, String Name) {
+        G1sqlQuery = "INSERT INTO CLIENT(Client_ID, Phone_number ,Email ,Name)VALUES('" + Client_ID + "','" + Phone_number
                 + "','" + Email + "','" + Name + "');";
         
         int i = 0;
@@ -89,10 +89,9 @@ public class G1_DB_Connection {
         }
         return i;
     }
-    
-    public int AddCase(int Case_ID, int Client_ID, String Title, String Category, String Status, String Fees) {
+    public int AddCase(String Case_ID, String Client_ID, String Title, String Category, String Status, String Fees) {
         G1sqlQuery = "insert into Case(Case_ID, Client_ID, Title, Category,Status, Fees)values('" + Case_ID + "','" + Client_ID
-                + "','" +Title + "','" + Category + "','" +Status+ "','" + Fees + "');";
+                + "','" + Title + "','" + Category + "','" + Status + "','" + Fees + "');";
         int i = 0;
         try {
             Statement stmt = G1Connection.createStatement();
@@ -104,9 +103,9 @@ public class G1_DB_Connection {
         }
         return i;
     }
-        
-        public int DeleteClient(int Client_ID) {
-        G1sqlQuery = "DELETE FROM CLIENT WHERE Client_ID='" + Client_ID + "';";    
+
+    public int DeleteClient(String Client_ID) {
+        G1sqlQuery = "DELETE FROM CLIENT WHERE Client_ID='" + Client_ID + "';";
         int i = 0;
         try {
             Statement stmt = G1Connection.createStatement();
@@ -118,8 +117,9 @@ public class G1_DB_Connection {
         }
         return i;
     }
-        public int DeleteCase(int Case_ID) {
-        G1sqlQuery = "DELETE FROM CASE WHERE Case_ID='" + Case_ID + "';";    
+
+    public int DeleteCase(String Case_ID) {
+        G1sqlQuery = "DELETE FROM CASE WHERE Case_ID='" + Case_ID + "';";
         int i = 0;
         try {
             Statement stmt = G1Connection.createStatement();

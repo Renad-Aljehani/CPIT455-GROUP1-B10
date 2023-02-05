@@ -106,13 +106,13 @@
                   <!-- <th>Country</th> -->
                 </tr>
                 <tr>
-                  <td>1</td>
-                  <td>Case Title (1)</td>
-                  <td>Category (1)</td>
-                  <td>Complete</td>
-                  <td>10000</td>
-                  <td>15/2/2022</td>
-                  <td>15/3/2022</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                   <td><center><button id="deleteButton">x</button></center></td>
 
 
@@ -127,8 +127,8 @@
                 </tr>
               </table>
               <br>
-            <form name="AddCasesForm" action="AddCase.jsp" method="POST">
-            <input type="submit" value="AddCases" name="AddCases" />
+            <form name="AddCaseForm" action="CaseForm.jsp" method="POST">
+            <input type="submit" value="Add Case" name="Add Case" />
             </form> 
             <!-- <div class="space">
                 <label for="user_name">UserName:</label>

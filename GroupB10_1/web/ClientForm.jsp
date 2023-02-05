@@ -1,7 +1,7 @@
 <%-- 
-    Document   : AddClient
-    Created on : Jan 30, 2023, 8:23:24 PM
-    Author     : hp
+    Document   : ClientForm
+    Created on : Jan 30, 2023, 11:20:49 PM
+    Author     : Renad Aljehani
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Add client</title>
+        <title>Client Form</title>
     </head>
     <style>
         body {
@@ -74,23 +74,40 @@
         }
     </style>
     <body>
-       <%
-            /*String ID = request.getParameter("1");
-            int Client_ID = Integer.parseInt(ID);
-            String Number = request.getParameter("0507123764");
-            int Phone_number = Integer.parseInt(Number);*/
-            String Client_ID = request.getParameter("Client_ID");
-            String Phone_number = request.getParameter("Phone_number");
-            String Email = request.getParameter("Email");
-            String Name = request.getParameter("Name");
-            G1DB_Connection.G1_DB_Connection connection = new G1DB_Connection.G1_DB_Connection();
-            int AddClient = connection.AddClient(Client_ID, Phone_number, Email, Name);
-            if (AddClient > 0) {
-                //response.sendRedirect("DisplayClients.jsp");
-                //out.print("Done");
-                response.sendRedirect("DisplayClients.jsp");
-            } else
-                out.print("Error");
-        %>
-    </body>
+    <center>
+        <center id="container">
+            <form name="ClientForm" action="AddClient.jsp" method="POST">
+                <img id="logo" src="Mugann.png" alt="">
+                <h1>Mugann</h1>
+                <br>
+                <h3>Add Client</h3>
+                <div>
+                    <label class="label" for="Client_ID">ID:</label>
+                    <input type="text"name="ID"value=""size="30">
+                </div>
+                <div>
+                    <label class="label" for="Phone_number">Phone Number:</label>
+                    <input type="text" name="Phone Number"value=""size="30">
+                </div>
+                <div>
+                    <label class="label" for="Email">Email:</label>
+                    <input type="text"name="Email"value=""size="30">
+                </div>
+                <div>
+                    <label class="label" for="Name">Name:</label>
+                    <input type="text"name="Name"value=""size="30">
+                </div>
+
+
+                <input type="submit" value="Add" name="Add" >
+                <input type="reset" value="Reset" name="Reset">
+
+                <!--<button type="submit">Add</button> 
+                <button type="submit">Back</button> -->
+
+            </form> 
+        </center>
+    </center>
+</body>
 </html>
+
