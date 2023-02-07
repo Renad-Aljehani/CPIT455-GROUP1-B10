@@ -22,10 +22,10 @@
             if (isValid) {
                 session.setAttribute("Username", Username);
                 session.setAttribute("Password", Password);
-                response.sendRedirect("Home.jsp");
+                response.sendRedirect("question-basedForm.jsp");
             } else {
                 response.sendRedirect("index.html");
             }
-        %>
+        %>         
     </body>
 </html>

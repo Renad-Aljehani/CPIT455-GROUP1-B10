@@ -1,7 +1,7 @@
 <%-- 
     Document   : DeleteClient
-    Created on : Feb 5, 2023, 10:24:13 PM
-    Author     : Renad Aljehani
+    Created on : Feb 6, 2023, 7:53:41 AM
+    Author     : maryam
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,19 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Delete users</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <%
-            String ID = request.getParameter("ID");
-            
-            G1DB_Connection.G1_DB_Connection conn = new G1DB_Connection.G1_DB_Connection();
-            int isDeleted = conn.DeleteClient(ID);
+            if (session.getAttribute("Username") != null && session.getAttribute("Password") != null && session.getAttribute("petName") != null) {
+           if (session.getAttribute("Username").equals("aziz_otb") && session.getAttribute("Password").equals("RWM@mwr147")&& session.getAttribute("petName").equals("lura")) {
+            String stringClientID = request.getParameter("id");
+            int Client_ID = Integer.valueOf(stringClientID);
+            G1DB_Connection.G1_DB_Connection connecter= new G1DB_Connection.G1_DB_Connection();
+            int isDeleted = connecter.DeleteClient(Client_ID);
             if (isDeleted > 0)
-                //out.print("Data is successfully deleted!");
-                response.sendRedirect("DisplayClients.jsp");
+               response.sendRedirect("DisplayClients.jsp");
             else
-                out.print("Error");
+                out.println("Error!");
+                }else {
+                response.sendRedirect("Erorr.jsp");
+            } 
+            }else {
+                response.sendRedirect("Erorr.jsp");
+            }
         %>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : CaseForm
-    Created on : Feb 5, 2023, 8:08:49 PM
-    Author     : Renad Aljehani
+    Document   : AddClient
+    Created on : Jan 30, 2023, 8:23:24 PM
+    Author     : hp
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Case Form</title>
+        <title>Document</title>
     </head>
     <style>
         body {
@@ -73,48 +73,54 @@
             margin-bottom: 5px;
         }
     </style>
+
     <body>
     <center>
         <center id="container">
-            <form name="CaseForm" action="AddCase.jsp" method="POST">
-                <img id="logo" src="Mugann.png" alt="">
-                <h1>Mugann</h1>
+            <img id="logo" src="Mugann.png" alt="">
+            <h1>Mugann</h1>
+            <br>
+            <h3>Add Client</h3>
+            <form name="AddClientForm" action="AddClient.jsp" method="POST">
+                <div>
+                    <label class="label" for="Client_ID">Client_ID:</label>
+                    <input name="Client_ID" type="number">
+
+                </div>
+                <div>
+                    <label class="label" for="Phone_number">Phone number:</label>
+                    <input name="Phone_number" type="text">
+                </div>
+                <div>
+                    <label class="label" for="Email">Email:</label>
+                    <input name="Email" type="text">
+                </div>
+                <div>
+                    <label class="label" for="Name">Name:</label>
+                    <input name="Name" type="text">
+                </div>
+
+
                 <br>
-                <h3>Add case</h3>
                 <div>
-                    <label class="label" for="Client_ID">Case_ID:</label>
-                    <input type="text"name="ID"value=""size="30">
+                    
+                    <input type="submit" value="Add Client" name="Add"/>
+                    <input type="reset" value="Reset Field" name="Reset"/>
                 </div>
-                <div>
-                    <label class="label" for="Phone_number">Client_ID:</label>
-                    <input type="text" name="Phone Number"value=""size="30">
-                </div>
-                <div>
-                    <label class="label" for="Email">Title:</label>
-                    <input type="text"name="Email"value=""size="30">
-                </div>
-                <div>
-                    <label class="label" for="Name">Category:</label>
-                    <input type="text"name="Name"value=""size="30">
-                </div>
-                <div>
-                    <label class="label" for="Name">Status:</label>
-                    <input type="text"name="Name"value=""size="30">
-                </div>
-                <div>
-                    <label class="label" for="Name">Fees:</label>
-                    <input type="text"name="Name"value=""size="30">
-                </div>
+               
+            </form>
+            
+             <form name="backForm" action="DisplayClients.jsp" method="POST">
+                    <input type="submit" value="back" name="back" />
+                </form>
+             <form name="LogoutForm" action="Logout.jsp" method="POST">
+                    <input type="submit" value="Logout" name="Logout" />
+                </form>
 
-                <input type="submit" value="Add" name="Add" >
-                <input type="reset" value="Reset" name="Reset">
 
-                <!--<button type="submit">Add</button> 
-                <button type="submit">Back</button> -->
-            </form> 
+
         </center>
     </center>
 </body>
+
 </html>
-
-

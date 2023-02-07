@@ -1,10 +1,3 @@
-<%-- 
-    Document   : Login
-    Created on : Jan 30, 2023, 5:43:32 PM
-    Author     : hp
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +14,9 @@
             align-content: center;
             /* font-family: 'Courier New', Courier, monospace; */
             font-family:Arial, Helvetica, sans-serif
+
         }
+
         #container {
             background-color: #CABAAC;
             align-items: center;
@@ -33,25 +28,26 @@
             border-radius: 20px;
             margin-top: 100px;
         }
+
         h1 {
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: brown;
         }
+
         .space {
             margin-bottom: 20px;
         }
+
         label{
             float: left;
-            margin-left: 180px;
+            margin-left: 168px;
             /* text-align: left; */
         }
         button{
             height: 30px;
             width: 100px;
             border-radius: 10px;
-
             background-color: white;
-
         }
         #logo{
             margin-top: 50px;
@@ -66,24 +62,17 @@
             <img id="logo" src="Mugann.png" alt="">
             <h1>Mugann</h1>
             <br>
-            <h3>Login</h3>
-            <form name="loginForm" action="VerifyLawyer.jsp" method="POST">
+            <h3>Question Based Authentication </h3>
+            <form name="Authentication" action="verifyAnswer.jsp" method="POST">
                 <div class="space">
-                    <label for="Username">Username:</label>
+                    <label for="Username">What's your pet name?</label>
                     <br>
-                    <input type="text" name="Username" value="">
+                    <input type="text" name="petName" value="">
                 </div>
-                <div class="space">
-                    <label for="Password">Password:</label>
-                    <br>
-                    <input type="password" name="Password" value="">
-                </div>
-                <input type="submit" value="Login" name="Login" />
+                <input type="submit" value="Verify" name="Verify"/>
             </form> 
         </center>
     </center>
 
 </body>
-
 </html>
-

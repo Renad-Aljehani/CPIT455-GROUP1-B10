@@ -3,7 +3,8 @@
     Created on : Jan 30, 2023, 7:29:20 PM
     Author     : hp
 --%>
-<%@ page import="java.sql.*"%>
+
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,8 +89,10 @@
 
     <body>
         <%
-            G1DB_Connection.G1_DB_Connection conn = new G1DB_Connection.G1_DB_Connection();
-            ResultSet resultSet = conn.DisplayClients();
+            if (session.getAttribute("Username") != null && session.getAttribute("Password") != null && session.getAttribute("petName") != null) {
+                if (session.getAttribute("Username").equals("aziz_otb") && session.getAttribute("Password").equals("RWM@mwr147") && session.getAttribute("petName").equals("lura")) {
+                    G1DB_Connection.G1_DB_Connection connecter = new G1DB_Connection.G1_DB_Connection();
+                    ResultSet Result = connecter.DisplayClients();
         %>
     <center>
         <center id="container">
@@ -104,36 +107,40 @@
                     <th>Email</th>
                     <th>Phone Number</th>
                     <th>Action</th>
-
-                    <% while (resultSet.next()) {%> 
+                </tr>
+                <% while (Result.next()) {%>
                 <tr>
-                    <td><%=resultSet.getString("Client_ID")%></td>
-                    <td><%=resultSet.getString("Phone_number")%></td>
-                    <td><%=resultSet.getString("Email")%></td>
-                    <td><%=resultSet.getString("Name")%></td>
-                    <td><center><button id="deleteButton" action="ClientForm.jsp">x</button></center></td>
+                    <td><%= Result.getString("Client_ID")%></td>
+                    <td><%= Result.getString("Name")%></td>
+                    <td><%= Result.getString("Email")%></td>
+                    <td><%= Result.getString("Phone_number")%></td>
+
+                    <td><center><button id="deleteButton"><a href="DeleteClient.jsp?id=<%=Result.getInt("Client_ID")%>">x</a></button></center></td>
                 </tr>
                 <%
                     }
+                    //                connecter.close();
                 %>
             </table>
             <br>
-            <form name="AddClientsForm" action="ClientForm.jsp" method="POST">
-                <input type="submit" value="Add Client" name="Add Client" />
+            <form name="AddClientsForm" action="AddClientForm.jsp" method="POST">
+                <input type="submit" value="AddClients" name="AddClients" />
+            </form>
+            <form name="backForm" action="Home.jsp" method="POST">
+                <input type="submit" value="back" name="back" />
+
             </form> 
-            <!-- <div class="space">
-                <label for="user_name">UserName:</label>
-                <br>
-                <input type="text">
-            </div>
-            <div class="space">
-                <label for="password">Password:</label>
-                <br>
-                <input type="password">
-            </div>
-            <button type="submit">Login</button> -->
+            <form name="LogoutForm" action="Logout.jsp" method="POST">
+                <input type="submit" value="Logout" name="Logout" />
+            </form>
         </center>
     </center>
+    <% } else {
+                response.sendRedirect("Erorr.jsp");
+            }
+        } else {
+            response.sendRedirect("Erorr.jsp");
+        }%> 
 
 </body>
 
