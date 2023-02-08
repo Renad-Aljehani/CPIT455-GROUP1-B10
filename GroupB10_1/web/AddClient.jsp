@@ -14,7 +14,7 @@
     <body>
         <%
             if (session.getAttribute("Username") != null && session.getAttribute("Password") != null && session.getAttribute("petName") != null) {
-           if (session.getAttribute("Username").equals("aziz_otb") && session.getAttribute("Password").equals("RWM@mwr147")&& session.getAttribute("petName").equals("lura")) {
+            if (session.getAttribute("Username").equals("aziz_otb") && session.getAttribute("Password").equals("RWM@mwr147")&& session.getAttribute("petName").equals("lura")) {
                 String stringClientId = request.getParameter("Client_ID");
                 int Client_ID = Integer.parseInt(stringClientId);
                 String Phone_number = request.getParameter("Phone_number");

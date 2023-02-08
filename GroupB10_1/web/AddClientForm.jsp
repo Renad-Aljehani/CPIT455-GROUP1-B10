@@ -81,6 +81,7 @@
             <h1>Mugann</h1>
             <br>
             <h3>Add Client</h3>
+            
             <form name="AddClientForm" action="AddClient.jsp" method="POST">
                 <div>
                     <label class="label" for="Client_ID">Client_ID:</label>
